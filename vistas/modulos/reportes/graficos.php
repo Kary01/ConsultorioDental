@@ -4,10 +4,13 @@
         $item = null;
         $valor = null;
 
+        //grafica tratamientos
         $respuesta = ControladorPacientes::ctrMostrarTratamientos();
-
+        //grafica edades
         $respuestaedad = ControladorReportes::ctrMostrarEdad();
-        var_dump($respuestaedad);
+        //grafica pacientes
+        $respuestapac = ControladorReportes::ctrMostrarPacientes();
+        var_dump($respuestapac[1]);
       
 ?>
 
@@ -20,7 +23,7 @@
         <!-- AREA CHART -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Gráfica Pacientes</h3>
+            <h3 class="card-title">Pacientes</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -29,7 +32,7 @@
           </div>
           <div class="card-body">
             <div class="chart">
-              <canvas id="areaChart" style="height:250px; min-height:250px"></canvas>
+              <canvas id="line-chart" style="height:230px; min-height:230px"></canvas>
             </div>
           </div>
           <!-- /.card-body -->
@@ -59,7 +62,7 @@
         <!-- LINE CHART -->
         <div class="card card-info">
           <div class="card-header">
-            <h3 class="card-title">Gráfica Citas</h3>
+            <h3 class="card-title">Citas</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -78,7 +81,7 @@
         <!-- BAR CHART -->
         <div class="card card-success">
           <div class="card-header">
-            <h3 class="card-title">Rango de Edades</h3>
+            <h3 class="card-title">Edades</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -87,7 +90,7 @@
           </div>
           <div class="card-body">
             <div class="chart">
-              <canvas id="barChart" style="height:230px; min-height:230px"></canvas>
+              <canvas id="areaChart" style="height:230px; min-height:230px"></canvas>
             </div>
           </div>
           <!-- /.card-body -->
@@ -106,6 +109,7 @@
 
 $(function () {
 
+//GRAFICA DONA
 
   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
   var donutData        = {
@@ -165,7 +169,7 @@ $(function () {
   })
 
 
-
+// GRAFICA AREA
 
   var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
@@ -185,7 +189,6 @@ $(function () {
           label               : 'Total',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
@@ -214,23 +217,64 @@ $(function () {
         xAxes: [{
           gridLines : {
             display : false,
-          }
+          },
         }],
         yAxes: [{
           gridLines : {
             display : false,
+          },
+          ticks: {
+          callback: function(value, index, values) {
+          return parseFloat(value).toFixed();
+          },
+          autoSkip: true,
+          maxTicksLimit: 10,
+          stepSize: 1
           }
         }]
       }
     }
 
-    // This will get the first returned node in the jQuery collection.
     var areaChart       = new Chart(areaChartCanvas, { 
       type: 'line',
       data: areaChartData, 
       options: areaChartOptions
     })
 
+// GRAFICA LINEAL
+
+new Chart(document.getElementById("line-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["1900", "1950", "1999", "2050", "2050", "2050", "2050", "2050", "2050", "2050", "2050", "2050"],
+      datasets: [
+        {
+          label: "Africa",
+          backgroundColor: "#3e95cd",
+          data: [<?php 
+      $count = 0;
+      foreach($respuestapac as $totalp):
+        if(++$count === count($respuestapac)) {
+            echo "'".$totalp[1]."'";//Nombre
+          }else{
+            echo "'".$totalp[1]."',";//Nombres
+        }
+      endforeach;
+        ?>]
+        }, {
+          label: "Europe",
+          backgroundColor: "#8e5ea2",
+          data: []
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Population growth (millions)'
+      }
+    }
+});
 
 })
 </script>

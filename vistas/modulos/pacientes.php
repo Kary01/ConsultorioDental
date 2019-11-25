@@ -166,7 +166,8 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Fecha de registro: </label>
             <div class="col-sm-8">
-              <input type="date" class="form-control" name="fechaNuevo" required>
+              <input type="date" class="form-control" name="fechaNuevo" required value="<?php echo date("Y-m-d"); ?>" 
+            			required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
             </div>
           </div>
 

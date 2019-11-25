@@ -33,13 +33,6 @@
       </div>
       <div class="card-body">
 
-          <button type="button" class="btn btn-default pull-right" id="daterange-btn">
-            <span>
-              <i class="fa fa-caret-down" style="padding:5px"></i>Rango de fecha
-            </span>
-            <i class="fa fa-calendar"></i>
-          </button>
-
           <!--  GRÁFICA -->
           <div class="row">
 

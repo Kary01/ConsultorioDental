@@ -10,7 +10,6 @@
         $respuestaedad = ControladorReportes::ctrMostrarEdad();
         //grafica pacientes
         $respuestapac = ControladorReportes::ctrMostrarPacientes();
-        var_dump($respuestapac[1]);
       
 ?>
 
@@ -246,25 +245,32 @@ $(function () {
 new Chart(document.getElementById("line-chart"), {
     type: 'bar',
     data: {
-      labels: ["1900", "1950", "1999", "2050", "2050", "2050", "2050", "2050", "2050", "2050", "2050", "2050"],
+      labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
       datasets: [
         {
-          label: "Africa",
+          label: "2018",
           backgroundColor: "#3e95cd",
-          data: [<?php 
-      $count = 0;
-      foreach($respuestapac as $totalp):
-        if(++$count === count($respuestapac)) {
-            echo "'".$totalp[1]."'";//Nombre
-          }else{
-            echo "'".$totalp[1]."',";//Nombres
-        }
-      endforeach;
-        ?>]
+          data: [<?php $anio_0 = '';
+              for ($i=0; $i < 12 ; $i++):
+                if($i == 11):
+                  $anio_0 .= $respuestapac[0][$i];
+                else:
+                  $anio_0 .= $respuestapac[0][$i].',';
+                endif;
+              endfor;
+              echo $anio_0;?>]
         }, {
-          label: "Europe",
+          label: "2019",
           backgroundColor: "#8e5ea2",
-          data: []
+          data: [<?php $anio_0 = '';
+              for ($i=0; $i < 12 ; $i++):
+                if($i == 11):
+                  $anio_0 .= $respuestapac[1][$i];
+                else:
+                  $anio_0 .= $respuestapac[1][$i].',';
+                endif;
+              endfor;
+              echo $anio_0;?>]
         }
       ]
     },

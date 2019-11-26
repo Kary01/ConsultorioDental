@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<link rel="shortcut icon" href="images/diente.ico" />
     <title>Consultorio Dental</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,8 +43,7 @@
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
 	          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest">
             <span>Agenda una cita</span></a></li>
-				<span class="nav-item cta"><a href="../consultorio/ingresar" class="nav-link">
-          <span>Iniciar Sesión </a></span>
+				
 	        </ul>
       </div>
     	    </div>
@@ -70,8 +70,8 @@
           <div class="row slider-text align-items-center" data-scrollax-parent="true">
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">CALIDAD Y ATENCIÓN</h1>
-              <p class="mb-4">La calidad de los tratamientos, las alternativas a los mismos y la información a nuestros pacientes nos distingue y son nuestro valor añadido</p>
-              <p><a href="#" class="btn btn-primary px-4 py-3">¡Agenda una cita!</a></p>
+              <p class="mb-4">La calidad de los tratamientos, las alternativas a los mismos y la información a nuestros pacientes nos distingue y son nuestro valor añadido.</p>
+              <p><a href="#" class="btn btn-primary px-4 py-3">¡Agenda una cita!</a></p>	
             </div>
           </div>
         </div>
@@ -82,23 +82,23 @@
     	<div class="container">
     		<div class="row no-gutters">
     			<div class="col-md-3 color-1 p-4">
-    				<h3 class="mb-4">URGENCIAS</h3>
-    				<p>En caso de emergencias,  llama a estos numeros.</p>
+   				  <h3 class="mb-4">URGENCIAS</h3>
+    				<p>En caso de emergencias,  llama a estos números.</p>
     				<span class="phone-number">Tel. 1506-1015</span><br>
             <span class="phone-number">Cel. 33 1513-0174</span>
 
     			</div>
-    			<div class="col-md-3 color-2 p-4">
+   			  <div class="col-md-3 color-2 p-4">
     				<h3 class="mb-4">HORARIO</h3>
-    				<p class="openinghours d-flex">
+   				<p class="openinghours d-flex">
     					<span>Lun - Vie</span>
     					<span>8:00 - 19:00</span>
-    				</p>
-   				  <p class="openinghours d-flex"> <span>Sabados con cita</span> </p>
+   				  </p>
+    				<p class="openinghours d-flex"> <span>Sábados con cita.</span></p>
     			</div>
     			<div class="col-md-6 color-3 p-4">
     				<h3 class="mb-2">AGENDA UNA CITA</h3>
-    				<form action="#" class="appointment-form">
+    				<form action="#" class="appointment-form" >
 	            <div class="row">
 	            	<div class="col-sm-4">
 	                <div class="form-group">
@@ -106,10 +106,15 @@
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                       <select name="" id="" class="form-control">
                       	<option value="">Servicios</option>
-                        <option value="">Teeth Whitening</option>
-                        <option value="">Teeth CLeaning</option>
-                        <option value="">Quality Brackets</option>
-                        <option value="">Modern Anesthetic</option>
+                        <option value="">Blanqueamiento Dental</option>
+                        <option value="">Limpieza Dental</option>
+                        <option value="">Brackets</option>
+                        <option value="">Endodoncia</option>
+						  <option value="">Resina Dental</option>
+                        <option value="">Periodoncia</option>
+						  <option value="">Implante Dentale</option>
+                        <option value="">Corona Dental</option>
+						  
                       </select>
                     </div>
 			            </div>
@@ -117,13 +122,13 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
-			              <input type="text" class="form-control" id="appointment_name" placeholder="Nombre">
+			              <input type="text" class="form-control" id="appointment_name" placeholder="Nombre" value="">
 			            </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-paper-plane"></span></div>
-			              <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+			              <input type="text" class="form-control" id="appointment_email" placeholder="Email" value="">
 			            </div>
 	              </div>
 	            </div>
@@ -131,19 +136,19 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
-	                  <input type="text" class="form-control appointment_date" placeholder="Fecha">
+	                  <input type="text" class="form-control appointment_date" placeholder="Fecha" value="">
 	                </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="ion-ios-clock"></span></div>
-	                  <input type="text" class="form-control appointment_time" placeholder="Horario">
+	                  <input type="text" class="form-control appointment_time" placeholder="Horario" value="">
 	                </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-phone2"></span></div>
-	                  <input type="text" class="form-control" id="phone" placeholder="Telefono">
+	                  <input type="text" class="form-control" id="phone" placeholder="Telefono" value="">
 	                </div>
 	              </div>
 	            </div>
@@ -174,7 +179,7 @@
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Odontología estética<br>
                 </h3>
-                <p style="text-align:justify">La odontología estética o cosmética es una especialidad de la odontología que soluciona problemas relacionados con la salud bucal y la armonía estética de la boca en su totalidad.</p>
+                <p>La odontología estética o cosmética es una especialidad de la odontología que soluciona problemas relacionados con la salud bucal.</p>
               </div>
             </div>
           </div>
@@ -185,7 +190,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Odontología conservadora</h3>
-                <p style="text-align:justify">Nuestro servicio de Odontología-Estomatología le ofrece un tratamiento integral de su cavidad oral.<br>
+                <p >Nuestro servicio de Odontología-Estomatología le ofrece un tratamiento integral de su cavidad oral.<br>
                 </p>
               </div>
             </div>
@@ -198,7 +203,7 @@
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Ortodoncia</h3>
                 <blockquote>
-                  <p style="text-align:justify">Bien sea con fines terapéuticos o fines estéticos nuestra Ortodoncia colocará sus dientes alineados para que usted le sonría a la vida.</p>
+                  <p >Bien sea con fines terapéuticos o fines estéticos nuestra Ortodoncia colocará sus dientes alineados para que usted le sonría a la vida.</p>
                 </blockquote>
               </div>
             </div>
@@ -210,7 +215,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Periodoncia</h3>
-                <p style="text-align:justify">Es la especialidad que estudia la prevención, diagnóstico y tratamiento de las enfermedades y condiciones que afectan los tejidos que dan soporte a los órganos dentarios periodonto y a los substitutos implantados, para el mantenimiento de la salud, función y estética de los dientes y sus tejidos adyacentes.</p>
+                <p>Es la especialidad que estudia la prevención, diagnóstico y tratamiento de las enfermedades y condiciones que afectan los tejidos que dan soporte a los órganos dentarios periodonto.</p>
               </div>
             </div>
           </div>
@@ -226,38 +231,24 @@
     			<div class="col-md-3 aside-stretch py-5">
     				<div class=" heading-section heading-section-white ftco-animate pr-md-4">
     				  <h2 class="mb-3">Experiencias</h2>
-    				  <p>9 de cada 10 clientes quedan satisfechos de los resultados</p>
+    				  <p>9 de cada 10 clientes quedan satisfechos de los resultados.</p>
    				  </div>
     			</div>
     			<div class="col-md-9 py-5 pl-md-5">
 		    		<div class="row">
+						 <div class="text" align="center"> 
+					  <span ><ceter>Me gusta ir al <strong>Consultorio Dental</strong> porque los tratamientos son realizados con una excelente calidad y en poco tiempo he visto grandes cambios en mi sonrisa. </ceter>
+					  </span>
+						</div>
+		    		
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="4">0</strong>
-		                <span>Años de Experiencia. </span>
-		              </div>
+		              <div class="text"> </div>
 		            </div>
 		          </div>
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
-		              <div class="text"><strong class="number" data-number="4500">4,500</strong> <span>Personas Atendias.</span></div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="4200">0</strong>
-		                <span>Sonrisas Generadas.</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="320">0</strong>
-		                <span>Pacientes en el año.</span>
-		              </div>
+		              <div class="text"> </div>
 		            </div>
 		          </div>
 		        </div>
@@ -285,7 +276,7 @@
     	</div>
     </section>
 
-
+		
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -295,30 +286,30 @@
               <p>¡Visítanos en nuestra sucursal! </p>
             </div>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
-              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              <li class="ftco-animate"></li>
+              <li class="ftco-animate"></li>
+              <li class="ftco-animate"></li>
             </ul>
           </div>
           <div class="col-md-2">
             <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Menú</h2>
+              <h2 class="ftco-heading-2">Menú.</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Inicio</a></li>
-                <li><a href="#" class="py-2 d-block">Servicios</a></li>
-                <li><a href="#" class="py-2 d-block">Contactos</a></li>
-
+                <li><a href="#" class="py-2 d-block">Inicio.</a></li>
+                <li><a href="services.html" class="py-2 d-block">Servicios.</a></li>
+                <li><a href="contact.html" class="py-2 d-block">Contactos.</a></li>
+                
               </ul>
             </div>
           </div>
           <div class="col-md-4 pr-md-4">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Avisos</h2>
+              <h2 class="ftco-heading-2">Avisos.</h2>
               <div class="block-21 mb-4 d-flex">
 <div class="text">
-              <h3 class="heading"><a href="#">Por temparada navideña los dias 24 y 25 permaneceremos cerrados</a></h3>
+              <h3 class="heading"><a>Por temparada navideña los dias 24 y 25 permaneceremos cerrados.</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Dic 01, 2019</a></div>
+                    <div><a><span class="icon-calendar"></span> Dic 01, 2019.</a></div>
 <div></div>
                   </div>
                 </div>
@@ -327,13 +318,12 @@
           </div>
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Ubicación</h2>
+              <h2 class="ftco-heading-2">Ubicación.</h2>
               <div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Parques de Santa Maria.</span></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Av. Bahía de Todos Los Santos 2583. Col.Parques de Santa Maria. - San pedro Tlaquepaque.</span></li>
 	                <li><span class="icon icon-phone"></span><span class="text">Cel: 33 1513-0174.<br>
 	                  Tel: 1506-1015.</span></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Consultrorio@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -343,7 +333,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script>2019 - 2019 All rights reserved | Codec <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> - 2020 All rights reserved. | Kodec.<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
       </div>
@@ -367,9 +357,6 @@
         </div>
         <div class="modal-body">
           <form action="#">
-		  <center>
-<div class="row">img</div>
-			  </center>
             <div class="form-group">
               <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
               <input type="text" class="form-control" id="appointment_name" placeholder="Nombre">
@@ -383,21 +370,21 @@
                 <div class="form-group">
                   <!-- <label for="appointment_date" class="text-black">Date</label> -->
                   <input type="text" class="form-control appointment_date" placeholder="Fecha">
-
+					
                 </div>
-
+				  
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <!-- <label for="appointment_time" class="text-black">Time</label> -->
                   <input type="text" class="form-control appointment_time" placeholder="Tiempo">
-
-
+					
+					
                 </div>
               </div>
             </div>
 			  <br/>
-
+		
 			  <div class="row">
 				  <br/>
 			    <input type="submit" value="Aceptar" class="btn btn-primary">
@@ -406,7 +393,7 @@
 
 			  <!-- Modal inicio secion -->
 			  <!-- <span class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"> <span>Inicar sesion </a></span>	    </div> -->
-
+			  
 		  <div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -440,13 +427,13 @@
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-
+			  
+			  
+			  
+			  
+			  
+			  
+			  
 
             <div class="form-group">
               <!-- <label for="appointment_message" class="text-black">Message</label> -->

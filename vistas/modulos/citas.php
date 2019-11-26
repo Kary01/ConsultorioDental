@@ -20,16 +20,13 @@
   <!-- Main content -->
   <section class="content">
 
-    <!-- Default box -->
+    <!-- BOX -->
     <div class="card">
       <div class="card-header">
-
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCita">
-            Agregar citas <i class="fa fa-user-plus" style="padding:5px"></i></button>
-
       </div>
       <div class="card-body" style="100%">
 
+      <!--TABLA DE CITAS -->
         <table id="example" class="table table-bordered table-striped display" style="100%">
           <thead>
                 <tr>
@@ -43,10 +40,10 @@
                     <th>Acción: </th>
                 </tr>
             </thead>
+            
             <tbody>
-
+            <!-- MUESTRA LA BD EN LA TABLA -->
               <?php
-
                 $item = null;
                 $valor = null;
 
@@ -65,9 +62,7 @@
                           <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                   </tr>';
                 }
-
               ?>
-
             </tbody>
             <tfoot>
                 <tr>
@@ -81,15 +76,9 @@
                   <th>Acción</th>
                 </tr>
             </tfoot>
-        </table>
-
-      </div>
-      <!-- /.card-body -->
-
-    </div>
-    <!-- /.card -->
-
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+        </table> <!-- ./table -->
+        
+      </div><!-- /.card-body -->
+    </div><!-- /.card -->
+  </section><!-- /.content -->
+</div><!-- /.content-wrapper -->

@@ -10,6 +10,9 @@
         $respuestaedad = ControladorReportes::ctrMostrarEdad();
         //grafica pacientes
         $respuestapac = ControladorReportes::ctrMostrarPacientes();
+        //graficas citas
+        $respuestaci = ControladorReportes::ctrMostrarCitas();
+
       
 ?>
 
@@ -70,7 +73,7 @@
           </div>
           <div class="card-body">
             <div class="chart">
-              <canvas id="lineChart" style="height:250px; min-height:250px"></canvas>
+              <canvas id="line-chart2" style="height:250px; min-height:230px"></canvas>
             </div>
           </div>
           <!-- /.card-body -->
@@ -277,7 +280,46 @@ new Chart(document.getElementById("line-chart"), {
     options: {
       title: {
         display: true,
-        text: 'Population growth (millions)'
+      }
+    }
+});
+
+
+new Chart(document.getElementById("line-chart2"), {
+    type: 'bar',
+    data: {
+      labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+      datasets: [
+        {
+          label: "2018",
+          backgroundColor: "#3e95cd",
+          data: [<?php $anio_0 = '';
+              for ($i=0; $i < 12 ; $i++):
+                if($i == 11):
+                  $anio_0 .= $respuestaci[0][$i];
+                else:
+                  $anio_0 .= $respuestaci[0][$i].',';
+                endif;
+              endfor;
+              echo $anio_0;?>]
+        }, {
+          label: "2019",
+          backgroundColor: "#5e3g42",
+          data: [<?php $anio_0 = '';
+              for ($i=0; $i < 12 ; $i++):
+                if($i == 11):
+                  $anio_0 .= $respuestaci[1][$i];
+                else:
+                  $anio_0 .= $respuestaci[1][$i].',';
+                endif;
+              endfor;
+              echo $anio_0;?>]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
       }
     }
 });

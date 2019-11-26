@@ -1,4 +1,5 @@
 <div class="login-page" id="back">
+
 <!-- LOGIN -->
 <div class="login-box">
   <div class="login-logo">
@@ -11,6 +12,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Iniciar Sesión</p>
 
+      <!-- FORMULARIO DE ACCESO -->
       <form method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Usuario" name="ingUsuario" required>
@@ -29,27 +31,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Recordar mis datos
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
           </div>
           <!-- /.col -->
         </div>
+
+        <!-- VALIDA EN BD -->
         <?php
             $login = new ControladorUsuarios();
             $login -> ctrIngresoUsuario();
         ?>
-      </form>
-    </div>
-    <!-- /.login-card-body -->
+      </form><!-- ./form -->
+    
+    </div><!-- /.login-card-body -->
+   </div>
   </div>
-</div>
 </div>

@@ -12,6 +12,12 @@
             $tabla = "pacientes";
             $respuestapac = ModeloReportes::mdlMostrarPacientes($tabla);
             return $respuestapac;
+        }
+
+        static public function ctrMostrarCitas(){
+            $tabla = "citas";
+            $respuestaci = ModeloReportes::mdlMostrarCitas($tabla);
+            return $respuestaci;
         }    
     }
 

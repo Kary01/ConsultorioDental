@@ -20,16 +20,15 @@
   <!-- Main content -->
   <section class="content">
 
-    <!-- Default box -->
+    <!-- Box -->
     <div class="card">
       <div class="card-header">
-
           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarPaciente">
             Agregar paciente <i class="fa fa-user-plus" style="padding:5px"></i></button>
-
       </div>
       <div class="card-body" style="100%">
-
+      
+      <!-- TABLA PACIENTES -->
         <table id="example" class="table table-bordered table-striped display dt-responsive">
           <thead>
                 <tr>
@@ -47,6 +46,7 @@
             </thead>
             <tbody>
 
+            <!-- LLENAR TABLA CON BASE DE DATOS -->
               <?php
 
                 $item = null;
@@ -66,16 +66,14 @@
                         <td>'.$value["telefono"].'</td>
                         <td>'.$value["tratamiento"].'</td>
                         <td>'.$value["fecha_registro"].'</td>
+
                         <td><button class="btn btn-warning btn-sm btnEditarPaciente" title="Editar" data-toggle="modal" data-target="#modalEditarPaciente" idPaciente="'.$value["id"].'"><i class="fas fa-edit"></i></button>
                             <button class="btn btn-danger btn-sm btnEliminarPaciente" title="Eliminar" idPaciente="'.$value["id"].'"><i class="fas fa-trash-alt"></i></button>
-                            <button class="btn btn-primary btn-sm btnAgregarCita" data-toggle="modal" data-target="#modalAgregarCita" idPaciente="'.$value["id"].'"><i class="fas fa-calendar-plus"></i></button></td>
+                            <button class="btn btn-primary btn-sm btnAgregarCita" data-toggle="modal" data-target="#modalAgregarCita" idPaciente="'.$value["id"].'"><i class="fas fa-calendar-plus"></i></button>
+                        </td>
                       </tr>';
-
-
                 }
-
               ?>
-
             </tbody>
             <tfoot>
                 <tr>
@@ -91,25 +89,21 @@
                   <th>Acción</th>
                 </tr>
             </tfoot>
-        </table>
+        </table> <!-- /.table -->
+      </div> <!-- /.card-body -->
+    </div> <!-- /.card -->
+  </section> <!-- /.content -->
+</div> <!-- /.content-wrapper -->
 
-      </div>
-      <!-- /.card-body -->
+<!-- VENTANAS MODAL -->
 
-    </div>
-    <!-- /.card -->
-
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-
-<!-- VENTANA MODAL -->
-<!-- The Modal -->
+<!-- MODAL AGREGAR PACIENTE -->
 <div class="modal" id="modalAgregarPaciente">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post">
+    
+    <!-- FORMULARIO PACIENTES-->
+    <form method="post">
 
       <!-- Modal Header -->
       <div class="modal-header" style="background:#2CB5F7">
@@ -123,35 +117,35 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Nombre: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="pacienteNuevo" required>
+              <input type="text" class="form-control" name="pacienteNuevo" id="pacienteNuevo" required onkeypress="return soloLetras(event)">
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg col-form-label">Primer Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="primerNuevo" id="primerNuevo" required>
+              <input type="text" class="form-control" name="primerNuevo" id="primerNuevo" required onkeypress="return soloLetras(event)">
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg col-form-label">Segundo Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="segundoNuevo" id="segundoNuevo">
+              <input type="text" class="form-control" name="segundoNuevo" id="segundoNuevo" required onkeypress="return soloLetras(event)">
             </div>
           </div>
 
          <div class="form-group row">
             <label class="col-lg col-form-label">Edad: </label>
             <div class="col-sm-8">
-              <input type="number" class="form-control" name="edadNuevo" min="1" max="99" required>
+              <input type="number" class="form-control" name="edadNuevo" min="1" max="99" required onkeypress="return soloNumeros(event)"> 
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg col-form-label">Teléfono: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="telefonoNuevo" id="telefonoNuevo"
+              <input type="text" class="form-control" name="telefonoNuevo" id="telefonoNuevo" onkeypress="return soloNumeros(event)"
               data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask required>
             </div>
           </div>
@@ -175,7 +169,6 @@
             <label class="col-lg col-form-label">Tratamiento: </label>
             <div class="col-sm-6">
               <select class="form-control" name="nuevoTratamiento" required>
-
                 <option value="">Seleccionar Tratamiento</option>
                 <option value="Ortodoncia">Ortodoncia</option>
                 <option value="Recina">Recina</option>
@@ -186,11 +179,9 @@
                 <option value="Amalgama">Amalgama</option>
                 <option value="Brackets">Brackets</option>
                 <option value="Corona">Corona</option>
-
               </select>
             </div>
           </div>
-
         </div>
       </div>
       <!-- Modal footer -->
@@ -198,24 +189,26 @@
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
         <input type="submit" class="btn btn-primary" value="Guardar">
       </div>
-
+      
+      <!-- INSERTA DATOS EN BD -->
       <?php
       $crearPaciente = new ControladorPacientes();
       $crearPaciente -> ctrPacientes();
-
       ?>
-    </form>
+
+      </form> <!-- ./form -->
+    </div>
   </div>
-</div>
 </div>
 
 <!--MODAL EDITAR PACIENTE-->
-<!-- VENTANA MODAL -->
-<!-- The Modal -->
+<!-- Modal -->
 <div class="modal" id="modalEditarPaciente">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="post">
+  
+    <!-- FORMULARIO EDITAR -->
+    <form method="post">
 
       <!-- Modal Header -->
       <div class="modal-header" style="background:#2CB5F7">
@@ -229,7 +222,7 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Nombre: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="pacienteEditar" id="pacienteEditar" value="" required>
+              <input type="text" class="form-control" name="pacienteEditar" id="pacienteEditar" value="" required onkeypress="return soloLetras(event)">
               <input type="hidden" id="idEditar" name="idEditar">
             </div>
           </div>
@@ -237,21 +230,21 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Primer Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="primeroEditar" id="primeroEditar" value="" required>
+              <input type="text" class="form-control" name="primeroEditar" id="primeroEditar" value="" required onkeypress="return soloLetras(event)">
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg col-form-label">Segundo Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="segundoEditar" id="segundoEditar" value="" >
+              <input type="text" class="form-control" name="segundoEditar" id="segundoEditar" value="" required onkeypress="return soloLetras(event)">
             </div>
           </div>
 
          <div class="form-group row">
             <label class="col-lg col-form-label">Edad: </label>
             <div class="col-sm-8">
-              <input type="number" class="form-control" name="edadEditar" id="edadEditar" min="1" max="99" value="" required>
+              <input type="number" class="form-control" name="edadEditar" id="edadEditar" min="1" max="99" value="" required onkeypress="return soloNumeros(event)">
             </div>
           </div>
 
@@ -259,14 +252,14 @@
             <label class="col-lg col-form-label">Teléfono: </label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="telefonoEditar" id="telefonoEditar"
-              data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask value="" required>
+              data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask value="" required onkeypress="return soloNumeros(event)">
             </div>
           </div>
 
           <div class="form-group row">
             <label  class="col-lg col-form-label">Correo electrónico: </label>
             <div class="col-sm-8">
-              <input type="email" class="form-control" name="correoEditar" id="correoEditar" value="" >
+              <input type="email" class="form-control" name="correoEditar" id="correoEditar" value="">
             </div>
           </div>
 
@@ -281,7 +274,6 @@
             <label class="col-lg col-form-label">Tratamiento: </label>
             <div class="col-sm-6">
               <select class="form-control" name="tratamientoEditar" id="tratamientoEditar" value="" required>
-
                 <option value="">Seleccionar Tratamiento</option>
                 <option value="Ortodoncia">Ortodoncia</option>
                 <option value="Recina">Recina</option>
@@ -292,11 +284,9 @@
                 <option value="Amalgama">Amalgama</option>
                 <option value="Brackets">Brackets</option>
                 <option value="Corona">Corona</option>
-
               </select>
             </div>
           </div>
-
         </div>
       </div>
       <!-- Modal footer -->
@@ -304,21 +294,21 @@
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
         <input type="submit" class="btn btn-primary" value="Guardar cambios">
       </div>
-<?php
-   
-   $editarPaciente = new ControladorPacientes();
-   $editarPaciente -> ctrEditarPacientes();
+    
+    <!-- ATRAPA LA BD -->
+    <?php
+      $editarPaciente = new ControladorPacientes();
+      $editarPaciente -> ctrEditarPacientes();
+    ?>
 
-?>
-
-    </form>
+    </form> <!-- ./form -->
+   </div>
   </div>
 </div>
-</div>
 
 
-<!-- VENTANA MODAL -->
-<!-- The Modal -->
+<!-- MODAL AGREGAR CITA -->
+<!-- Modal -->
 <div class="modal" id="modalAgregarCita">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -336,21 +326,21 @@
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Nombre: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nombreNuevo" id="nombreNuevo" required>
+              <input type="text" class="form-control" name="nombreNuevo" id="nombreNuevo" required readonly>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Primer Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="primerNuevo" id="primerNuevo" required>
+              <input type="text" class="form-control" name="primerNuevo" id="primerNuevo" required readonly>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Segundo Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="segundoNuevo" id="segundoNuevo" required>
+              <input type="text" class="form-control" name="segundoNuevo" id="segundoNuevo" required readonly>
             </div>
           </div>
 
@@ -365,7 +355,6 @@
             <label for="nombreNuevo" class="col-lg col-form-label">Hora: </label>
             <div class="col-sm-6">
               <select class="form-control" name="horaNuevo" id="horaNuevo" required >
-
                 <option value="">Seleccionar Hora</option>
                 <option value="8:30 AM">8:30 AM</option>
                 <option value="9:00 AM">9:00 AM</option>
@@ -387,7 +376,6 @@
                 <option value="5:00 PM">5:00 PM</option>
                 <option value="5:30 PM">5:30 PM</option>
                 <option value="6:00 PM">6:00 PM</option>
-
               </select>
             </div>
           </div>
@@ -396,7 +384,6 @@
             <label for="nombreNuevo" class="col-lg col-form-label">Tratamiento: </label>
             <div class="col-sm-6">
               <select class="form-control" name="nuevoTratamiento" required>
-
                 <option value="">Seleccionar Tratamiento</option>
                 <option value="Ortodoncia">Ortodoncia</option>
                 <option value="Recina">Recina</option>
@@ -407,11 +394,9 @@
                 <option value="Amalgama">Amalgama</option>
                 <option value="Brackets">Brackets</option>
                 <option value="Corona">Corona</option>
-
               </select>
             </div>
           </div>
-
         </div>
       </div>
       <!-- Modal footer -->
@@ -421,12 +406,52 @@
       </div>
 
       <?php
-
-      $crearCita = new ControladorCitas();
-      $crearCita -> ctrCrearCitas();
-
+        $crearCita = new ControladorCitas();
+        $crearCita -> ctrCrearCitas();
       ?>
-    </form>
+
+    </form> <!-- -/form -->
+   </div>
   </div>
 </div>
-</div>
+
+
+<!-- SCRIPT VALIDACIÓN DE CAMPOS -->
+<script>
+
+//CAMPOS DE TEXTO
+function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+
+//PARA CAMPOS NÚMERICOS
+function soloNumeros(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key);
+    letras = " 0123456789";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+</script> <!-- ./script -->

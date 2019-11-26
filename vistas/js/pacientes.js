@@ -101,7 +101,9 @@ $(document).ready(function($) {
       })
   });
 
-  $('#example tbody').on('click', '.btnAgregarCita', function() {   //acción para el botón editar
+  //AGREGAR CITA
+
+  $('#example tbody').on('click', '.btnAgregarCita', function() {   //acción para el botón agregar cita
        
 
     var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón

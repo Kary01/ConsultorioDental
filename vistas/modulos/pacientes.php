@@ -326,21 +326,22 @@
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Nombre: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nombreNuevo" id="nombreNuevo" required readonly>
+              <input type="text" class="form-control" name="nombreCitas" id="nombreCitas" required readonly>
+              <input type="hidden" id="idCitas" name="idCitas">
             </div>
           </div>
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Primer Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="primerNuevo" id="primerNuevo" required readonly>
+              <input type="text" class="form-control" name="primerCitas" id="primerCitas" required readonly>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="nombreNuevo" class="col-lg col-form-label">Segundo Apellido: </label>
+            <label for="nombreCitas" class="col-lg col-form-label">Segundo Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="segundoNuevo" id="segundoNuevo" required readonly>
+              <input type="text" class="form-control" name="segundoCitas" id="segundoCitas" required readonly>
             </div>
           </div>
 

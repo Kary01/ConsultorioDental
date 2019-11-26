@@ -1,3 +1,4 @@
+<!-- SESIÓN DEL PANEL -->
 <?php
 session_start();
 ?>
@@ -11,10 +12,10 @@ session_start();
 
   <link rel="icon" href="vistas/dist/img/diente.png">
 
-  <!-- Tell the browser to be responsive to screen width -->
+  <!-- Responsive to screen width -->
   <meta  name="viewport" content="width=device-width, initial-scale=1">
 
-<!--PLUGINS CSS-->
+  <!--PLUGINS CSS-->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -30,7 +31,7 @@ session_start();
   <!-- Daterange -->
   <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
 
-<!--PLUGINS JAVASCRIPT-->
+  <!--PLUGINS JAVASCRIPT-->
   <!-- jQuery -->
   <script src="vistas/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -39,28 +40,25 @@ session_start();
   <script src="vistas/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="vistas/dist/js/demo.js"></script>
-  <!-- DataTables -->
   <!-- jQuery, Popper.js, Bootstrap JS -->
- <script src="vistas/datatable_into/jquery/jquery-3.4.1.min.js"></script>
- <script src="vistas/datatable_into/popper/popper.min.js"></script>
- <script src="vistas/datatable_into/bootstrap/js/bootstrap.min.js"></script>
-
- <!-- datatables JS -->
- <script src="vistas/datatable_into/datatables/datatables.min.js"></script>
- <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
- <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
- <script src="vistas/js/main.js"></script>
- <script src="vistas/js/pacientes.js"></script>
+  <script src="vistas/datatable_into/jquery/jquery-3.4.1.min.js"></script>
+  <script src="vistas/datatable_into/popper/popper.min.js"></script>
+  <script src="vistas/datatable_into/bootstrap/js/bootstrap.min.js"></script>
+  <!-- datatables JS -->
+  <script src="vistas/datatable_into/datatables/datatables.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+  <!--MY JS-->
+  <script src="vistas/js/main.js"></script>
+  <script src="vistas/js/pacientes.js"></script>
   <script src="vistas/js/reportes.js"></script>
-
- <!-- Alertas suaves-->
- <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
-
- <!-- JS Daterange -->
- <script src="vistas/plugins/daterangepicker/moment.min.js"></script>
- <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
-
- <script src="vistas/plugins/chart.js/Chart.min.js"></script>
+  <!-- Alertas suaves-->
+  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script> 
+  <!-- JS Daterange -->
+  <script src="vistas/plugins/daterangepicker/moment.min.js"></script>
+  <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
+  <!--CHARTS JS-->
+  <script src="vistas/plugins/chart.js/Chart.min.js"></script>
 </head>
 
 
@@ -105,7 +103,6 @@ if (isset($_GET["ruta"])) {
     include "modulos/inicio.php";
   }
 
-
 //FOOTER
 include "modulos/footer.php";
 
@@ -117,10 +114,10 @@ echo '</div>';
 ?>
 
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</body>
-</html>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+
+    </aside><!-- /.control-sidebar -->
+
+  </body> <!-- ./body -->
+</html> <!-- ./html -->

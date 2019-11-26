@@ -6,16 +6,16 @@
 
     static public function ctrCrearCitas(){
 
-      if(isset($_POST["nombreNuevo"])){
-          if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]|[\s]+$/', $_POST["nombreNuevo"]) &&
-                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/', $_POST["primerNuevo"]) &&
-                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/', $_POST["segundoNuevo"])){
+      if(isset($_POST["nombreCitas"])){
+          if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]|[\s]+$/', $_POST["nombreCitas"]) &&
+                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/', $_POST["primerCitas"]) &&
+                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/', $_POST["segundoCitas"])){
 
                 $tabla = "citas";
 
-                $datos = array("nombre" => $_POST["nombreNuevo"],
-                                "primer_apellido" => $_POST["primerNuevo"],
-                                "segundo_apellido" => $_POST["segundoNuevo"],
+                $datos = array("nombre" => $_POST["nombreCitas"],
+                                "primer_apellido" => $_POST["primerCitas"],
+                                "segundo_apellido" => $_POST["segundoCitas"],
                                 "fecha" => $_POST["fechaNuevo"],
                                 "hora" => $_POST["horaNuevo"],
                                 "tratamiento" => $_POST["nuevoTratamiento"]);

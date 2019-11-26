@@ -27,7 +27,7 @@
       <div class="card-body" style="100%">
 
       <!--TABLA DE CITAS -->
-        <table id="example" class="table table-bordered table-striped display" style="100%">
+        <table id="example" class="table table-bordered table-striped display dt-responsive" style="100%">
           <thead>
                 <tr>
                     <th>#</th>

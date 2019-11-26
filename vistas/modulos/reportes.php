@@ -29,26 +29,20 @@
       </div>
       <div class="card-body">
 
-          <!--  GRÁFICA -->
+          <!--  GRÁFICAS -->
           <div class="row">
-
             <div class="col-xs-12">
+            
+            <!-- MOSTRAR DATOS -->
               <?php
                include "reportes/graficos.php"
               ?>
+
             </div>
           </div>
-
-      </div>
-      <!-- /.card-body -->
+      </div><!-- /.card-body -->
       <div class="card-footer">
-
-      </div>
-      <!-- /.card-footer-->
-    </div>
-    <!-- /.card -->
-
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+      </div> <!-- /.card-footer-->
+    </div> <!-- /.card -->
+  </section> <!-- /.content -->
+</div> <!-- /.content-wrapper -->

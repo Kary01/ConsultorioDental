@@ -1,12 +1,12 @@
 //EDITAR PACIENTE
 $(document).ready(function($) {
-    $('#example tbody').on('click', '.btnEditarPaciente', function() {
+    $('#example tbody').on('click', '.btnEditarPaciente', function() {   //acción para el botón editar
        
 
-      var idPaciente = $(this).attr("idPaciente");
+      var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón
         console.log(idPaciente);
 
-        $.ajax({
+        $.ajax({        //para traer todos los datos
             url: "ajax/pacientes.ajax.php",
             method: "POST",
             dataType: 'JSON',
@@ -25,19 +25,21 @@ $(document).ready(function($) {
                 $('#fechaEditar').val(result['fecha_registro']);
                 $('#tratamientoEditar').val(result['tratamiento']);
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) { //mostrar errores
                 console.log("Error: " + errorThrown);
             }
         });
 
     });
 
-    $('#example tbody').on('click', '.btnEliminarPaciente', function() {
+    //ELIMINAR PACIENTE
 
-      var idPaciente = $(this).attr("idPaciente");
+    $('#example tbody').on('click', '.btnEliminarPaciente', function() { //acción para el botón editar
+
+      var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón
       console.log(idPaciente);
 
-      const swalWithBootstrapButtons = Swal.mixin({
+      const swalWithBootstrapButtons = Swal.mixin({     //acciones en la alerta suave
           customClass: {
               confirmButton: 'btn btn-success',
               cancelButton: 'btn btn-danger'
@@ -45,7 +47,7 @@ $(document).ready(function($) {
           buttonsStyling: false
       })
 
-      swalWithBootstrapButtons.fire({
+      swalWithBootstrapButtons.fire({       //alerta para confirmación de acciones
           title: '¿Estás seguro de eliminar el paciente?',
           text: "Si no lo está, puede cancelar la acción!",
           type: 'warning',
@@ -55,14 +57,14 @@ $(document).ready(function($) {
           reverseButtons: true
       }).then((result) => {
           if (result.value) {
-              console.log("me quieren eliminar" + idPaciente);
+              console.log("me quieren eliminar" + idPaciente);      //mensaje prueba en consola
               $.ajax({
-                  url: "ajax/pacientes.ajax.php",
+                  url: "ajax/pacientes.ajax.php",                   //acción en bd
                   method: "POST",
                   dataType: 'JSON',
                   cache: false,
                   data: { 'ideliminar': idPaciente },
-                  success: function(resultado) {
+                  success: function(resultado) {                //confirmación de eliminar paciente
                       if (resultado == 'ok') {
                           Swal.fire({
                               type: "success",
@@ -74,7 +76,7 @@ $(document).ready(function($) {
                                   window.location = "pacientes";
                               }
                           });
-                      } else if (resultado == 'error') {
+                      } else if (resultado == 'error') {    //error si no se logró eliminar
                           Swal.fire({
                               type: "error",
                               title: "No se logro eliminar...",
@@ -84,7 +86,7 @@ $(document).ready(function($) {
                           }).then((result) => {
                               if (result.value) {
 
-                                  window.location = "pacientes";
+                                  window.location = "pacientes";    //vuelve a la ventana de pacientes
                               }
                           });
                       }
@@ -97,6 +99,33 @@ $(document).ready(function($) {
               //window.location = "pacientes";
           }
       })
+  });
+
+  $('#example tbody').on('click', '.btnAgregarCita', function() {   //acción para el botón editar
+       
+
+    var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón
+      console.log(idPaciente);
+
+      $.ajax({        //para traer todos los datos
+          url: "ajax/pacientes.ajax.php",
+          method: "POST",
+          dataType: 'JSON',
+          cache: false,
+          data: { 'idmostrar': idPaciente },
+          success: function(result) {
+              console.log(result);
+              $('#idCitas').val(null);
+              $('#idCitas').val(result['id']);
+              $('#nombreCitas').val(result['nombre']);
+              $('#primerCitas').val(result['primer_apellido']);
+              $('#segundoCitas').val(result['segundo_apellido']);
+          },
+          error: function(jqXHR, textStatus, errorThrown) { //mostrar errores
+              console.log("Error: " + errorThrown);
+          }
+      });
+
   });
 });
 

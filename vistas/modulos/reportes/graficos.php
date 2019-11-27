@@ -308,9 +308,9 @@ new Chart(document.getElementById("line-chart2"), {
           data: [<?php $anio_0 = '';
               for ($i=0; $i < 12 ; $i++):
                 if($i == 11):
-                  $anio_0 .= $respuestaci[1][$i];
+                  $anio_0 .= $respuestaci[0][$i];
                 else:
-                  $anio_0 .= $respuestaci[1][$i].',';
+                  $anio_0 .= $respuestaci[0][$i].',';
                 endif;
               endfor;
               echo $anio_0;?>]

@@ -30,7 +30,7 @@ require_once "conexion.php";
 
         static public function mdlMostrarCitas($tabla){
 
-            $stmt = Conexion::conectar()->prepare("SELECT COUNT(CASE WHEN MONTH (fecha)=1 THEN id END) AS ENE, COUNT(CASE WHEN MONTH (fecha)=2 THEN id END) AS FEB, COUNT(CASE WHEN MONTH (fecha)=3 THEN id END) AS MAR, COUNT(CASE WHEN MONTH (fecha)=4 THEN id END) AS ABR, COUNT(CASE WHEN MONTH (fecha)=5 THEN id END) AS MAY, COUNT(CASE WHEN MONTH (fecha)=6 THEN id END) AS JUN, COUNT(CASE WHEN MONTH (fecha)=7 THEN id END) AS JUL, COUNT(CASE WHEN MONTH (fecha)=8 THEN id END) AS AGO, COUNT(CASE WHEN MONTH (fecha)=9 THEN id END) AS SEP, COUNT(CASE WHEN MONTH (fecha)=10 THEN id END) AS OCT, COUNT(CASE WHEN MONTH (fecha)=11 THEN id END) AS NOV, COUNT(CASE WHEN MONTH (fecha)=12 THEN id END) AS DIC FROM citas GROUP BY YEAR(fecha) ");
+            $stmt = Conexion::conectar()->prepare("SELECT COUNT(CASE WHEN MONTH (fecha_hora)=1 THEN id END) AS ENE, COUNT(CASE WHEN MONTH (fecha_hora)=2 THEN id END) AS FEB, COUNT(CASE WHEN MONTH (fecha_hora)=3 THEN id END) AS MAR, COUNT(CASE WHEN MONTH (fecha_hora)=4 THEN id END) AS ABR, COUNT(CASE WHEN MONTH (fecha_hora)=5 THEN id END) AS MAY, COUNT(CASE WHEN MONTH (fecha_hora)=6 THEN id END) AS JUN, COUNT(CASE WHEN MONTH (fecha_hora)=7 THEN id END) AS JUL, COUNT(CASE WHEN MONTH (fecha_hora)=8 THEN id END) AS AGO, COUNT(CASE WHEN MONTH (fecha_hora)=9 THEN id END) AS SEP, COUNT(CASE WHEN MONTH (fecha_hora)=10 THEN id END) AS OCT, COUNT(CASE WHEN MONTH (fecha_hora)=11 THEN id END) AS NOV, COUNT(CASE WHEN MONTH (fecha_hora)=12 THEN id END) AS DIC FROM citas GROUP BY YEAR(fecha_hora)");
             $stmt -> execute();
               
             return $stmt -> fetchAll();

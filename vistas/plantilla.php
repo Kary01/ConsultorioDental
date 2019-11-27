@@ -28,8 +28,7 @@ session_start();
   <link rel="stylesheet" href="vistas/datatable_into/datatables/datatables.min.css"/>
   <link rel="stylesheet" href="vistas/datatable_into/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
-  <!-- Daterange -->
-  <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
+
 
   <!--PLUGINS JAVASCRIPT-->
   <!-- jQuery -->
@@ -44,6 +43,13 @@ session_start();
   <script src="vistas/datatable_into/jquery/jquery-3.4.1.min.js"></script>
   <script src="vistas/datatable_into/popper/popper.min.js"></script>
   <script src="vistas/datatable_into/bootstrap/js/bootstrap.min.js"></script>
+  <!-- FECHA -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+      <script src="vistas/calendario/Calendario/moment.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- datatables JS -->
   <script src="vistas/datatable_into/datatables/datatables.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
@@ -55,9 +61,6 @@ session_start();
   <script src="vistas/js/reportes.js"></script>
   <!-- Alertas suaves-->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script> 
-  <!-- JS Daterange -->
-  <script src="vistas/plugins/daterangepicker/moment.min.js"></script>
-  <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
   <!--CHARTS JS-->
   <script src="vistas/plugins/chart.js/Chart.min.js"></script>
 </head>
@@ -82,8 +85,7 @@ include "modulos/cabecera.php";
 include "modulos/menu.php";
 
 if (isset($_GET["ruta"])) {
-  if($_GET["ruta"] == "inicio" ||
-      $_GET["ruta"] == "calendario" ||
+  if( $_GET["ruta"] == "calendario" ||
       $_GET["ruta"] == "citas" ||
       $_GET["ruta"] == "pacientes" ||
       $_GET["ruta"] == "reportes" ||
@@ -101,7 +103,7 @@ if (isset($_GET["ruta"])) {
 }else {
 
     //si la ruta está vacía mostrará el inicio
-    include "modulos/inicio.php";
+    include "modulos/calendario.php";
   }
 
 //FOOTER

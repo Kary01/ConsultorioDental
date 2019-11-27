@@ -10,14 +10,13 @@ class ModeloCitas{
   static public function mdlIngresarCitas($tabla, $datos){
 
     $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, primer_apellido,
-    segundo_apellido, fecha, hora, tratamiento)
-    VALUES(:nombre, :primer_apellido, :segundo_apellido, :fecha, :hora, :tratamiento)");
+    segundo_apellido, fecha_hora, tratamiento)
+    VALUES(:nombre, :primer_apellido, :segundo_apellido, :fecha_hora, :tratamiento)");
 
     $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
     $stmt->bindParam(":primer_apellido", $datos["primer_apellido"], PDO::PARAM_STR);
     $stmt->bindParam(":segundo_apellido", $datos["segundo_apellido"], PDO::PARAM_STR);
-    $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
-    $stmt->bindParam(":hora", $datos["hora"], PDO::PARAM_STR);
+    $stmt->bindParam(":fecha_hora", $datos["fecha_hora"], PDO::PARAM_STR);
     $stmt->bindParam(":tratamiento", $datos["tratamiento"], PDO::PARAM_STR);
 
 

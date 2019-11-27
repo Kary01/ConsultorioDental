@@ -1,3 +1,101 @@
+<?php
+$m=''; //for error messages
+$id_event=''; //id event created 
+$link_event; 
+if(isset($_POST['agendar'])){
+    
+
+    date_default_timezone_set('America/Guayaquil');
+    include_once 'vistas/calendario/Calendario/vendor/autoload.php';
+
+    //configurar variable de entorno / set enviroment variable
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=ConsultorioDental-020b46bbb85e.json');
+
+    $client = new Google_Client();
+    $client->useApplicationDefaultCredentials();
+    $client->setScopes(['https://www.googleapis.com/auth/calendar']);
+
+    //define id calendario
+    $id_calendar='lacet6hg4lksboobe5000lu5u0@group.calendar.google.com';//
+    
+   
+      
+    $datetime_start = new DateTime($_POST['date_start']);
+    $datetime_end = new DateTime($_POST['date_start']);
+    
+    //aumentamos una hora a la hora inicial/ add 1 hour to start date
+    $time_end = $datetime_end->add(new DateInterval('PT1H'));
+    
+    //datetime must be format RFC3339
+    $time_start =$datetime_start->format(\DateTime::RFC3339);
+    $time_end=$time_end->format(\DateTime::RFC3339);
+
+    
+    $nombre=(isset($_POST['nombreCitas']))?$_POST['nombreCitas']:' xyz ';
+    try{
+        
+        //instanciamos el servicio
+    	 $calendarService = new Google_Service_Calendar($client);
+      
+        
+      
+        //parámetros para buscar eventos en el rango de las fechas del nuevo evento
+        //params to search events in the given dates
+        $optParams = array(
+            'orderBy' => 'startTime',
+            'maxResults' => 20,
+            'singleEvents' => TRUE,
+            'timeMin' => $time_start,
+            'timeMax' => $time_end,
+        );
+
+        //obtener eventos 
+        $events=$calendarService->events->listEvents($id_calendar,$optParams);
+        
+        //obtener número de eventos / get how many events exists in the given dates
+        $cont_events=count($events->getItems());
+     
+        //crear evento si no hay eventos / create event only if there is no event in the given dates
+        if($cont_events == 0){
+
+            $event = new Google_Service_Calendar_Event();
+            $event->setSummary('Cita con el paciente '.$nombre);
+            $event->setDescription('Revisión , Tratamiento');
+
+            //fecha inicio
+            $start = new Google_Service_Calendar_EventDateTime();
+            $start->setDateTime($time_start);
+            $event->setStart($start);
+
+            //fecha fin
+            $end = new Google_Service_Calendar_EventDateTime();
+            $end->setDateTime($time_end);
+            $event->setEnd($end);
+
+          
+            $createdEvent = $calendarService->events->insert($id_calendar, $event);
+            $id_event= $createdEvent->getId();
+            $link_event= $createdEvent->gethtmlLink();
+            
+        }else{
+            $m = "Hay ".$cont_events." eventos en ese rango de fechas";
+        }
+
+
+    }catch(Google_Service_Exception $gs){
+     
+      $m = json_decode($gs->getMessage());
+      $m= $m->error->message;
+
+    }catch(Exception $e){
+        $m = $e->getMessage();
+      
+    }
+}
+
+?>
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -195,7 +293,6 @@
       $crearPaciente = new ControladorPacientes();
       $crearPaciente -> ctrPacientes();
       ?>
-
       </form> <!-- ./form -->
     </div>
   </div>
@@ -314,6 +411,28 @@
     <div class="modal-content">
       <form method="post">
 
+
+      <?php 
+    if(isset($_POST['agendar'])){
+      if($m!=''){
+      ?>
+      <label class="control-form">Error :<?php echo $m;   ?></label>
+      <?php
+      }
+      elseif($id_event!=''){
+        ?>
+        <label class="control-form">ID EVENTO :<?php echo $id_event;   ?></label><br>
+        <a href="<?php  echo $link_event;  ?>">LINK</a>
+        <?php
+      }
+      ?><br>
+      <button type="button" class="btn btn-primary btn-block" onclick="reload();">BACK</button>
+      <?php
+    }
+    else{
+    ?>
+
+
       <!-- Modal Header -->
       <div class="modal-header" style="background:#2CB5F7">
         <h4 class="modal-title" style="color:white">NUEVA CITA</h4>
@@ -347,40 +466,13 @@
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Fecha: </label>
-            <div class="col-sm-8">
-              <input type="date" class="form-control" name="fechaNuevo" required value="<?php echo date("Y-m-d"); ?>" 
-            			required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>> 
+            <div class="input-group date col-sm-8"  id="datetimepicker1" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="date_start" name="date_start"/>
+                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
             </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="nombreNuevo" class="col-lg col-form-label">Hora: </label>
-            <div class="col-sm-6">
-              <select class="form-control" name="horaNuevo" id="horaNuevo" required >
-                <option value="">Seleccionar Hora</option>
-                <option value="8:30 AM">8:30 AM</option>
-                <option value="9:00 AM">9:00 AM</option>
-                <option value="9:30 AM">9:30 AM</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="10:30 AM">10:30 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="11:30 AM">11:30 AM</option>
-                <option value="12:00 PM">12:00 AM</option>
-                <option value="12:30 PM">12:30 AM</option>
-                <option value="1:00 PM">1:00 PM</option>
-                <option value="1:30 PM">1:30 PM</option>
-                <option value="2:00 PM">2:00 PM</option>
-                <option value="2:30 PM">2:30 PM</option>
-                <option value="3:00 PM">3:00 PM</option>
-                <option value="3:30 PM">3:30 PM</option>
-                <option value="4:00 PM">4:00 PM</option>
-                <option value="4:30 PM">4:30 PM</option>
-                <option value="5:00 PM">5:00 PM</option>
-                <option value="5:30 PM">5:30 PM</option>
-                <option value="6:00 PM">6:00 PM</option>
-              </select>
-            </div>
-          </div>
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Tratamiento: </label>
@@ -404,10 +496,11 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-        <input type="submit" class="btn btn-primary" value="Guardar">
+        <input type="submit" class="btn btn-primary" value="Guardar" name="agendar">
       </div>
 
       <?php
+    }
         $crearCita = new ControladorCitas();
         $crearCita -> ctrCrearCitas();
       ?>
@@ -416,6 +509,8 @@
    </div>
   </div>
 </div>
+
+
 
 
 <!-- SCRIPT VALIDACIÓN DE CAMPOS -->
@@ -456,4 +551,9 @@ function soloNumeros(e) {
     if(letras.indexOf(tecla) == -1 && !tecla_especial)
         return false;
 }
+
+function reload(){
+              location.href="calendar.php";
+            }
+
 </script> <!-- ./script -->

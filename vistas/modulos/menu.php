@@ -24,16 +24,7 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
-        <li class="nav-item has-treeview">
-          <a href="inicio" class="nav-link" style="padding-top: 25px; padding-bottom: 25px">
-            <i class="nav-icon fas fa-home"></i>
-            <p>
-              Inicio
-            </p>
-          </a>
-        </li>
+        <!-- LISTADO -->
         <li class="nav-item">
           <a href="calendario" class="nav-link" style="padding-top: 25px; padding-bottom: 25px">
             <i class="nav-icon fas fa-calendar-day"></i>

@@ -16,8 +16,7 @@
                 $datos = array("nombre" => $_POST["nombreCitas"],
                                 "primer_apellido" => $_POST["primerCitas"],
                                 "segundo_apellido" => $_POST["segundoCitas"],
-                                "fecha" => $_POST["fechaNuevo"],
-                                "hora" => $_POST["horaNuevo"],
+                                "fecha_hora" => $_POST["date_start"],
                                 "tratamiento" => $_POST["nuevoTratamiento"]);
 
                   $respuesta = ModeloCitas::mdlIngresarCitas($tabla, $datos);

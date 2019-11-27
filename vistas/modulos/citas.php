@@ -34,8 +34,7 @@
                     <th>Nombre: </th>
                     <th>Primer Apellido: </th>
                     <th>Segundo Apellido: </th>
-                    <th>Fecha: </th>
-                    <th>Hora: </th>
+                    <th>Fecha - Hora: </th>
                     <th>Tratamiento: </th>
                     <th>Acción: </th>
                 </tr>
@@ -55,8 +54,7 @@
                       <td>'.$value["nombre"].'</td>
                       <td>'.$value["primer_apellido"].'</td>
                       <td>'.$value["segundo_apellido"].'</td>
-                      <td>'.$value["fecha"].'</td>
-                      <td>'.$value["hora"].'</td>
+                      <td>'.$value["fecha_hora"].'</td>
                       <td>'.$value["tratamiento"].'</td>
                       <td><button class="btn btn-warning btn-sm btnEditarCita" title="Editar" data-toggle="modal" data-target="#modalEditarCita" idCitas="'.$value["id"].'"><i class="fas fa-edit"></i></button>
 
@@ -71,8 +69,7 @@
                   <th>Nombre</th>
                   <th>Primer Apellido</th>
                   <th>Segundo Apellido</th>
-                  <th>Fecha</th>
-                  <th>Hora</th>
+                  <th>Fecha - Hora</th>
                   <th>Tratamiento</th>
                   <th>Acción</th>
                 </tr>

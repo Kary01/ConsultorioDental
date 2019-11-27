@@ -75,6 +75,63 @@
 
       }
 
+      //EDITAR CITAS 
+
+
+    static public function ctrEditarCitas(){
+
+      if (isset($_POST["nombreEditar"])) {
+        
+                $tabla = "citas"; 
+                $datos = array( "id" => $_POST["idCitas"],
+                                "nombre" => $_POST["nombreEditar"],
+                                "primer_apellido" => $_POST["primeroEditar"],
+                                "segundo_apellido" => $_POST["segundoEditar"],
+                                "fecha" => $_POST["fechaEditar"],
+                                "hora" => $_POST["horaEditar"],
+                                "tratamiento" => $_POST["tratamientoEditar"]);
+
+                $respuesta = ModeloCitas::mdlEditarCitas($tabla, $datos);
+
+                if ($respuesta == "ok") {
+
+                  echo '<script>
+
+                  Swal.fire({
+                      type: "success",
+                      title: "La cita se ha modificado correctamente...",
+                      showConfirmButton: true,
+                      ConfirmButtonText: "Cerrar",
+                    }).then((result)=>{
+                      if (result.value) {
+
+                        window.location = "citas";
+                      }
+                    })
+
+                        </script>';
+                }else {
+
+
+          echo '<script>
+
+          Swal.fire({
+              type: "error",
+              title: "No se logro completar la modificación...",
+              showConfirmButton: true,
+              ConfirmButtonText: "Cerrar",
+              closeOnConfirm: false
+            }).then((result)=>{
+              if (result.value) {
+
+                window.location = "citas";
+              }
+            })
+
+                </script>';
+        }
+      }
+    }
 
   }
 

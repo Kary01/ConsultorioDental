@@ -52,7 +52,7 @@ static public function mdlMostrarPacientes($tabla, $item, $valor){
   $stmt = null;
 }
 
-  //EDITAR USUARIO
+  //EDITAR PACIENTE
 
   static public function mdlEditarPacientes($tabla, $datos){
 

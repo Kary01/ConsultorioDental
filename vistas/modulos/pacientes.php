@@ -69,7 +69,7 @@
 
                         <td><button class="btn btn-warning btn-sm btnEditarPaciente" title="Editar" data-toggle="modal" data-target="#modalEditarPaciente" idPaciente="'.$value["id"].'"><i class="fas fa-edit"></i></button>
                             <button class="btn btn-danger btn-sm btnEliminarPaciente" title="Eliminar" idPaciente="'.$value["id"].'"><i class="fas fa-trash-alt"></i></button>
-                            <button class="btn btn-primary btn-sm btnAgregarCita" data-toggle="modal" data-target="#modalAgregarCita" idPaciente="'.$value["id"].'"><i class="fas fa-calendar-plus"></i></button>
+                            <button class="btn btn-primary btn-sm btnAgregarCita" title="Nueva Cita" data-toggle="modal" data-target="#modalAgregarCita" idPaciente="'.$value["id"].'"><i class="fas fa-calendar-plus"></i></button>
                         </td>
                       </tr>';
                 }
@@ -186,7 +186,7 @@
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
         <input type="submit" class="btn btn-primary" value="Guardar">
       </div>
       
@@ -291,7 +291,7 @@
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
         <input type="submit" class="btn btn-primary" value="Guardar cambios">
       </div>
     
@@ -348,7 +348,8 @@
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Fecha: </label>
             <div class="col-sm-8">
-              <input type="date" class="form-control" name="fechaNuevo" required>
+              <input type="date" class="form-control" name="fechaNuevo" required value="<?php echo date("Y-m-d"); ?>" 
+            			required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>> 
             </div>
           </div>
 
@@ -402,7 +403,7 @@
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
         <input type="submit" class="btn btn-primary" value="Guardar">
       </div>
 

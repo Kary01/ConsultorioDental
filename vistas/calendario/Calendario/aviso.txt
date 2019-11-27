@@ -1,0 +1,3 @@
+en esta carpeta también debe ir el archivo json con las crdenciales de la cuenta de servicio descargado desde google developer console
+
+y la librería google-api-php-client descargada de github

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "consultoriodental",
+  "private_key_id": "020b46bbb85ee78bfe7d60b421452f15550abfd3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDL13hGLi/QXBun\nPRR74xvLAxJSWhqvBtOOx9900dvnVbUPBAubN6T9ifZzDPPrDer8DR1XmQZhVlfl\nMBHladC1EwoKd+gLdsZ6icaaDDSsgwIEEiULHkfV3Idh31c6FQjWPU4uCqWn1sgc\nX36x5XMho/pNGI2T3YWHGvcD7qEFkfjaMaKzdYW+BIdByCQaT4j13BivtRToU1mK\nVCNZvld9zbcF6QsLQOMfj+JcanI5OYIxW3FI1clrtGUTwY2GJMB6C+XGU0eokPhE\n0lERpsDNoePIFCeFlHriOcP5t7JuygjRwcxP5d87bqvYWvqTRWn8pGGbac72gW4B\nbgdxmWfnAgMBAAECgf9nZeTltIf6KQfd8dSWueYWFHjJBBA73MzhMoG5Ld8VC63M\nFK7zDSI2VQ5AcnYjfDT/XIMYEKvitA4q6lvgcMxtVoQvFFp7v1ZcP9AQVCCtGBBb\nbf1cXUjue6WebYdjymxDZNWMhUfLbZU4zzfivBM82KexBgyBq7frPjAOhWrfQvtD\nbJxe3mvfvCZieu6OB9mQBrc/wMYfczSmCKqmYGGKXk5TT8aDX9YB4wd0WhhfjT6R\n+WQI7Jv1zaoURnbdH2vosr+0Gze2u/PgRDAdvQ+pPpBh64iIzQJK26h5MatK7C5F\n1OZ6OoiaXI2hpIGTkKmKmvCM22+89pvx9S7ftcECgYEA6yyEKWmSwOSgXze8Uozj\nZ+EIiOtz5QYaQBXPekIV9HISVqhtV3nrdf7rhk3Y2kL3zyKmT3zIcdIf/zkaBIgr\nWI/SCqiImVLpfKWHS5P5rKQJSHZO60Zra42/6liQ+hZZQXDQRtMRT8R7BFKKhKX0\nap9zDPW2dA+F3QvMXhlb+uECgYEA3eSj3WOx5OYJtOYp5Fo9bRPxtc6Yck+d1oPR\nNI77sBgN6h8nA50l/Nmnqs2bNjcp85dt9QAYds6OqRz0wZtfo0alRH+FRjSEX6og\nXpOBo9mTF/iqpYZRG0GWZGHLeSVtB3yEwN10yPeUuCcVMDb2Z+tzaOZP93DBbe+5\n6QsAw8cCgYA43ZfLh7qzp9TbkVeZQnYOfUyaBw0MGRCp5Fw5/NbgN+EVUT63Q0Tb\nUFvVKue/xyeyz3cVi1/QnfWcukr/Q4nvrT8l0qDNKk5JFKGFde+Ofk+8VNc6btm0\ntR7t5KKRxmuotkW2in0KI8F3Rxo1fwd97LZeMOAAamx9CchODKXAIQKBgQCfTqQH\nMqhpum6Fnim9dLxdL9B9wxHYICkl9gWhQnaY+uwihrMv+Qdo/atPCcbBqeFIrhOX\nrrXhtnLeH5fp2G9VfkbxYsyAlvvi4vXScPzGclMVBscdh817UB91enDnTWN12IRH\nI7fRAU+Y1xZzQ0KtYXG+gnwvHpkBIPfMxMWLyQKBgQDdlGEmGa83Py7/I+Tmjf1G\ntNgpOO/0Gv0plovEQX4DhUad8SY2Mg3KjRGIb0ayWBG6gm53OOnhWRsac312FRL6\n51JNt2nq4ODWkKpDY57WdLBL89Rs79MbSa1VNCFvlTpQ6Dvd1oTP4K9AMlcv85gd\n/8PzK/3fdC/cWBM34Hay9w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "consultoriodental@consultoriodental.iam.gserviceaccount.com",
+  "client_id": "117983648372000950107",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/consultoriodental%40consultoriodental.iam.gserviceaccount.com"
+}

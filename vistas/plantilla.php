@@ -58,7 +58,6 @@ session_start();
   <script src="vistas/js/main.js"></script>
   <script src="vistas/js/pacientes.js"></script>
   <script src="vistas/js/citas.js"></script>
-  <script src="vistas/js/reportes.js"></script>
   <!-- Alertas suaves-->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script> 
   <!--CHARTS JS-->

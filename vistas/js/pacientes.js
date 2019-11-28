@@ -130,5 +130,38 @@ $(document).ready(function($) {
       });
 
   });
-});
 
+  $('#agendar').on('click', function() {
+
+
+    var nombreCitas = $('#nombreCitas').val();
+    var primerCitas = $('#primerCitas').val();
+    var segundoCitas = $('#segundoCitas').val();
+    var date_start = $('#date_start').val();
+    var nuevoTratamiento = $('#nuevoTratamiento').val();
+    //var fecha = date_start.split(' ');//0 para date / 1 para time
+
+
+    $.ajax({
+        url: "ajax/calendar.php",
+        method: "POST",
+        dataType: 'JSON',
+        cache: false,
+        data: {
+            'agendar': 'agendame esta',
+            'nombreCitas': nombreCitas,
+            'primerCitas': primerCitas,
+            'segundoCitas': segundoCitas,
+            'nuevoTratamiento': nuevoTratamiento,
+            'date_start': date_start
+        },
+        success: function(result) {
+            console.log(result);
+        },
+        error: function(jqXHR, textStatus, errorThrown) { //mostrar errores
+            console.log("Error: " + errorThrown);
+        }
+    });
+
+});
+});

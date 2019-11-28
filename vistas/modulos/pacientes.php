@@ -1,101 +1,3 @@
-<?php
-$m=''; //for error messages
-$id_event=''; //id event created 
-$link_event; 
-if(isset($_POST['agendar'])){
-    
-
-    date_default_timezone_set('America/Guayaquil');
-    include_once 'vistas/calendario/Calendario/vendor/autoload.php';
-
-    //configurar variable de entorno / set enviroment variable
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=ConsultorioDental-020b46bbb85e.json');
-
-    $client = new Google_Client();
-    $client->useApplicationDefaultCredentials();
-    $client->setScopes(['https://www.googleapis.com/auth/calendar']);
-
-    //define id calendario
-    $id_calendar='lacet6hg4lksboobe5000lu5u0@group.calendar.google.com';//
-    
-   
-      
-    $datetime_start = new DateTime($_POST['date_start']);
-    $datetime_end = new DateTime($_POST['date_start']);
-    
-    //aumentamos una hora a la hora inicial/ add 1 hour to start date
-    $time_end = $datetime_end->add(new DateInterval('PT1H'));
-    
-    //datetime must be format RFC3339
-    $time_start =$datetime_start->format(\DateTime::RFC3339);
-    $time_end=$time_end->format(\DateTime::RFC3339);
-
-    
-    $nombre=(isset($_POST['nombreCitas']))?$_POST['nombreCitas']:' xyz ';
-    try{
-        
-        //instanciamos el servicio
-    	 $calendarService = new Google_Service_Calendar($client);
-      
-        
-      
-        //parámetros para buscar eventos en el rango de las fechas del nuevo evento
-        //params to search events in the given dates
-        $optParams = array(
-            'orderBy' => 'startTime',
-            'maxResults' => 20,
-            'singleEvents' => TRUE,
-            'timeMin' => $time_start,
-            'timeMax' => $time_end,
-        );
-
-        //obtener eventos 
-        $events=$calendarService->events->listEvents($id_calendar,$optParams);
-        
-        //obtener número de eventos / get how many events exists in the given dates
-        $cont_events=count($events->getItems());
-     
-        //crear evento si no hay eventos / create event only if there is no event in the given dates
-        if($cont_events == 0){
-
-            $event = new Google_Service_Calendar_Event();
-            $event->setSummary('Cita con el paciente '.$nombre);
-            $event->setDescription('Revisión , Tratamiento');
-
-            //fecha inicio
-            $start = new Google_Service_Calendar_EventDateTime();
-            $start->setDateTime($time_start);
-            $event->setStart($start);
-
-            //fecha fin
-            $end = new Google_Service_Calendar_EventDateTime();
-            $end->setDateTime($time_end);
-            $event->setEnd($end);
-
-          
-            $createdEvent = $calendarService->events->insert($id_calendar, $event);
-            $id_event= $createdEvent->getId();
-            $link_event= $createdEvent->gethtmlLink();
-            
-        }else{
-            $m = "Hay ".$cont_events." eventos en ese rango de fechas";
-        }
-
-
-    }catch(Google_Service_Exception $gs){
-     
-      $m = json_decode($gs->getMessage());
-      $m= $m->error->message;
-
-    }catch(Exception $e){
-        $m = $e->getMessage();
-      
-    }
-}
-
-?>
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -107,7 +9,7 @@ if(isset($_POST['agendar'])){
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="calendario">Inicio</a></li>
             <li class="breadcrumb-item active">Pacientes</li>
           </ol>
         </div>
@@ -412,25 +314,7 @@ if(isset($_POST['agendar'])){
       <form method="post">
 
 
-      <?php 
-    if(isset($_POST['agendar'])){
-      if($m!=''){
-      ?>
-      <label class="control-form">Error :<?php echo $m;   ?></label>
-      <?php
-      }
-      elseif($id_event!=''){
-        ?>
-        <label class="control-form">ID EVENTO :<?php echo $id_event;   ?></label><br>
-        <a href="<?php  echo $link_event;  ?>">LINK</a>
-        <?php
-      }
-      ?><br>
-      <button type="button" class="btn btn-primary btn-block" onclick="reload();">BACK</button>
-      <?php
-    }
-    else{
-    ?>
+      
 
 
       <!-- Modal Header -->
@@ -477,7 +361,7 @@ if(isset($_POST['agendar'])){
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Tratamiento: </label>
             <div class="col-sm-6">
-              <select class="form-control" name="nuevoTratamiento" required>
+              <select class="form-control" name="nuevoTratamiento" id="nuevoTratamiento" required >
                 <option value="">Seleccionar Tratamiento</option>
                 <option value="Ortodoncia">Ortodoncia</option>
                 <option value="Recina">Recina</option>
@@ -496,13 +380,13 @@ if(isset($_POST['agendar'])){
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-        <input type="submit" class="btn btn-primary" value="Guardar" name="agendar">
+        <input type="button" class="btn btn-primary" value="Guardar" name="agendar" id="agendar">
       </div>
 
       <?php
-    }
-        $crearCita = new ControladorCitas();
-        $crearCita -> ctrCrearCitas();
+    
+        //$crearCita = new ControladorCitas();
+        //$crearCita -> ctrCrearCitas();
       ?>
 
     </form> <!-- -/form -->
@@ -552,8 +436,5 @@ function soloNumeros(e) {
         return false;
 }
 
-function reload(){
-              location.href="calendar.php";
-            }
 
 </script> <!-- ./script -->

@@ -98,23 +98,21 @@
     			</div>
     			<div class="col-md-6 color-3 p-4">
     				<h3 class="mb-2">AGENDA UNA CITA</h3>
-    				<form action="#" class="appointment-form" >
+    				<form action="enviar.php" method="post" class="appointment-form" >
 	            <div class="row">
 	            	<div class="col-sm-4">
 	                <div class="form-group">
 			              <div class="select-wrap">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                      	<option value="">Servicios</option>
-                        <option value="">Blanqueamiento Dental</option>
-                        <option value="">Limpieza Dental</option>
-                        <option value="">Brackets</option>
-                        <option value="">Endodoncia</option>
-						  <option value="">Resina Dental</option>
-                        <option value="">Periodoncia</option>
-						  <option value="">Implante Dentale</option>
-                        <option value="">Corona Dental</option>
-						  
+                      <select name="tratamiento" id="tratamiento" class="form-control">
+                        <option value="Blanqueamiento Dental">Blanqueamiento Dental</option>
+                        <option value="Limpieza Dental">Limpieza Dental</option>
+                        <option value="Brackets">Brackets</option>
+                        <option value="Endodoncia">Endodoncia</option>
+						            <option value="Resina Dental">Resina Dental</option>
+                        <option value="Periodoncia">Periodoncia</option>
+						            <option value="Implante Dental">Implante Dental</option>
+                        <option value="Corona Dental">Corona Dental</option>
                       </select>
                     </div>
 			            </div>
@@ -122,13 +120,13 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
-			              <input type="text" class="form-control" id="appointment_name" placeholder="Nombre" value="">
+			              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="" required>
 			            </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-paper-plane"></span></div>
-			              <input type="text" class="form-control" id="appointment_email" placeholder="Email" value="">
+			              <input type="email" class="form-control" name="email" id="email" placeholder="Correo eléctrinico" value="">
 			            </div>
 	              </div>
 	            </div>
@@ -136,25 +134,25 @@
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
-	                  <input type="text" class="form-control appointment_date" placeholder="Fecha" value="">
+	                  <input type="date" class="form-control" name="fecha" id="fecha" placeholder="Fecha" value="" required>
 	                </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="ion-ios-clock"></span></div>
-	                  <input type="text" class="form-control appointment_time" placeholder="Horario" value="">
+	                  <input type="time" class="form-control" name="hora" id="hora" placeholder="Horario" value="" required>
 	                </div>
 	              </div>
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-phone2"></span></div>
-	                  <input type="text" class="form-control" id="phone" placeholder="Telefono" value="">
+	                  <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" value="">
 	                </div>
 	              </div>
 	            </div>
 
 	            <div class="form-group">
-	              <input type="submit" value="Agendar" class="btn btn-primary">
+	              <input type="submit" value="Agendar" class="btn btn-primary float-right">
 	            </div>
 	          </form>
     			</div>
@@ -225,7 +223,7 @@
       	<div class="row d-flex no-gutters"> </div>
       </div>
     </section>
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
    	<div class="container">
     		<div class="row d-flex align-items-center">
     			<div class="col-md-3 aside-stretch py-5">
@@ -236,7 +234,7 @@
     			</div>
     			<div class="col-md-9 py-5 pl-md-5">
 		    		<div class="row">
-						 <div class="text" align="center"> 
+						 <div class="text align-item-center"> 
 					  <span ><ceter>Me gusta ir al <strong>Consultorio Dental</strong> porque los tratamientos son realizados con una excelente calidad y en poco tiempo he visto grandes cambios en mi sonrisa. </ceter>
 					  </span>
 						</div>
@@ -306,15 +304,15 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Avisos.</h2>
               <div class="block-21 mb-4 d-flex">
-<div class="text">
-              <h3 class="heading"><a>Por temparada navideña los dias 24 y 25 permaneceremos cerrados.</a></h3>
+                <div class="text">
+                   <h3 class="heading"><a>Por temparada navideña los dias 24 y 25 permaneceremos cerrados.</a></h3>
                   <div class="meta">
                     <div><a><span class="icon-calendar"></span> Dic 01, 2019.</a></div>
-<div></div>
+                   <div></div>
                   </div>
                 </div>
               </div>
-</div>
+             </div>
           </div>
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
@@ -388,7 +386,7 @@
 			  <div class="row">
 				  <br/>
 			    <input type="submit" value="Aceptar" class="btn btn-primary">
-			    <input type="submit" value="Cancelar" class="btn " >
+			    <input type="button" value="Cancelar" class="btn " >
 </div>
 
 			  <!-- Modal inicio secion -->

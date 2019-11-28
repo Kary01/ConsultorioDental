@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="calendario">Inicio</a></li>
             <li class="breadcrumb-item active">404 Error</li>
           </ol>
         </div>
@@ -29,7 +29,7 @@
           Ingresa al menú lateral y podrás visualizar las páginas disponibles.
         </p>
         <p>
-          Puedes regresar haciendo <a href="inicio">click aquí.</a>
+          Puedes regresar haciendo <a href="calendario">click aquí.</a>
         </p>
       </div>
       <!-- /.error-content -->

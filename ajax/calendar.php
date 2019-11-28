@@ -1,4 +1,21 @@
 <?php
+require_once "../controladores/citas.controlador.php";
+require_once "../modelos/citas.modelo.php";
+
+class AjaxCitas{
+
+    public function ajaxAgregarCitas($nombre, $ape_pat, $ape_mat, $fecha, $tratamiento){
+        $nombre_add     = (string)$nombre;
+        $ape_pat_add    = (string)$ape_pat;
+        $ape_mat_add    = (string)$ape_mat;
+        $fecha_add   = (string)$fecha;
+        $tratamiento_add= (string)$tratamiento;
+        $respuesta = ControladorCitas::ctrCrearCitas($nombre_add, $ape_pat_add, $ape_mat_add, $fecha_add, $tratamiento_add);
+        echo json_encode($respuesta);
+    }
+
+    
+}
 
 
 $m=''; //for error messages
@@ -17,9 +34,6 @@ if (isset($_POST['agendar'])) {
     $client = new Google_Client();
     $client->useApplicationDefaultCredentials();
     $client->setScopes(['https://www.googleapis.com/auth/calendar']);
-    //$client->setAuthConfig('credentials.json');
-    // Load previously authorized credentials from a file.
-    //$credentialsPath = 'token.json';
 
     //define id calendario
     $id_calendar='lacet6hg4lksboobe5000lu5u0@group.calendar.google.com';//
@@ -37,7 +51,14 @@ if (isset($_POST['agendar'])) {
     $time_end=$time_end->format(\DateTime::RFC3339);
 
     
-    $nombre=(isset($_POST['nombreCitas']))?$_POST['nombreCitas']:' xyz ';
+    $nombre=(isset($_POST['nombreCitas']))?$_POST['nombreCitas']:' Paciente ';
+    $ape_pat=(isset($_POST['primerCitas']))?$_POST['primerCitas']:' Apellido';
+    $ape_mat=(isset($_POST['segundoCitas']))?$_POST['segundoCitas']:'Pendiente';
+    if($ape_mat==null){
+        $ape_mat='Pendiente';
+    }
+    $tratamiento=(isset($_POST['nuevoTratamiento']))?$_POST['nuevoTratamiento']:'Revisión , Tratamiento';
+    $fecha = (isset($_POST['date_start']))?$_POST['date_start']:'Pendiente';
     try{
         
         //instanciamos el servicio
@@ -65,8 +86,8 @@ if (isset($_POST['agendar'])) {
         if($cont_events == 0){
 
             $event = new Google_Service_Calendar_Event();
-            $event->setSummary('Cita con el paciente '.$nombre);
-            $event->setDescription('Revisión , Tratamiento');
+            $event->setSummary('Cita con el paciente '.$nombre.' '.$ape_pat.' '.$ape_mat);
+            $event->setDescription($tratamiento);
 
             //fecha inicio
             $start = new Google_Service_Calendar_EventDateTime();
@@ -81,8 +102,16 @@ if (isset($_POST['agendar'])) {
           
             $createdEvent = $calendarService->events->insert($id_calendar, $event);
             $id_event= $createdEvent->getId();
-            echo json_encode($id_event);
-            //$link_event= $createdEvent->gethtmlLink();
+            if($id_event!=null){
+                $d = new AjaxCitas();
+                $d-> ajaxAgregarCitas($nombre, $ape_pat, $ape_mat, $fecha, $tratamiento);
+                //echo json_encode($id_event);
+                //$link_event= $createdEvent->gethtmlLink();
+            }else{
+                echo json_encode('Error');
+            }
+
+            
             
         }else{
             $m = "Hay ".$cont_events." eventos en ese rango de fechas";

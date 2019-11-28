@@ -34,7 +34,7 @@ class ModeloCitas{
 
 static public function mdlMostrarCitas($tabla, $item, $valor){
   if ($item != null) {
-    $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$valor");
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = $valor");
     
     $stmt -> execute();
     return $stmt -> fetch();
@@ -51,11 +51,10 @@ static public function mdlMostrarCitas($tabla, $item, $valor){
 
 static public function mdlEditarCitas($tabla, $datos){
 
-  $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET fecha = :fecha, hora = :hora, tratamiento = :tratamiento WHERE id = :id");
+  $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET fecha_hora = :fecha_hora, tratamiento = :tratamiento WHERE id = :id");
 
     $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
-    $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
-    $stmt->bindParam(":hora", $datos["hora"], PDO::PARAM_STR);
+    $stmt->bindParam(":fecha_hora", $datos["fecha_hora"], PDO::PARAM_STR);
     $stmt->bindParam(":tratamiento", $datos["tratamiento"], PDO::PARAM_STR);
 
     if ($stmt->execute()) {

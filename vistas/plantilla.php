@@ -43,7 +43,7 @@ session_start();
   <script src="vistas/datatable_into/jquery/jquery-3.4.1.min.js"></script>
   <script src="vistas/datatable_into/popper/popper.min.js"></script>
   <script src="vistas/datatable_into/bootstrap/js/bootstrap.min.js"></script>
-  <!-- FECHA -->
+  <!-- FECHA Y APPI CALENDARIO-->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

@@ -27,7 +27,7 @@
       <div class="card-body" style="100%">
 
       <!--TABLA DE CITAS -->
-        <table id="citas" class="table table-bordered table-striped display dt-responsive" style="100%">
+        <table id="citas" class="table table-bordered table-striped display dt-responsive">
           <thead>
                 <tr>
                     <th>#</th>
@@ -105,7 +105,7 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Nombre: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nombreEditar" id="nombreEditar" value="" required readonly>
+              <input type="text" class="form-control" name="nombreEditar" id="nombreEditar" value="" required readonly disabled>
               <input type="hidden" id="citaIdEditar" name="citaIdEditar">
             </div>
           </div>
@@ -113,53 +113,27 @@
           <div class="form-group row">
             <label class="col-lg col-form-label">Primer Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="primeroEditar" id="primeroEditar" value="" required readonly>
+              <input type="text" class="form-control" name="primeroEditar" id="primeroEditar" value="" required readonly disabled>
             </div>
           </div>
 
           <div class="form-group row">
             <label class="col-lg col-form-label">Segundo Apellido: </label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="segundoEditar" id="segundoEditar" value="" required readonly>
+              <input type="text" class="form-control" name="segundoEditar" id="segundoEditar" value="" required readonly disabled> 
             </div>
           </div>
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Fecha: </label>
-            <div class="col-sm-8">
-              <input type="date" class="form-control" name="fechaEditar" id="fechaEditar" required value="<?php echo date("Y-m-d"); ?>" 
-            			required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
+            <div class="input-group date col-sm-8"  id="datetimepicker1" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="date_start" name="date_start"/>
+                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
             </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="nombreNuevo" class="col-lg col-form-label">Hora: </label>
-            <div class="col-sm-6">
-              <select class="form-control" name="horaEditar" id="horaEditar" required >
-                <option value="">Seleccionar Hora</option>
-                <option value="8:30 AM">8:30 AM</option>
-                <option value="9:00 AM">9:00 AM</option>
-                <option value="9:30 AM">9:30 AM</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="10:30 AM">10:30 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="11:30 AM">11:30 AM</option>
-                <option value="12:00 PM">12:00 AM</option>
-                <option value="12:30 PM">12:30 AM</option>
-                <option value="1:00 PM">1:00 PM</option>
-                <option value="1:30 PM">1:30 PM</option>
-                <option value="2:00 PM">2:00 PM</option>
-                <option value="2:30 PM">2:30 PM</option>
-                <option value="3:00 PM">3:00 PM</option>
-                <option value="3:30 PM">3:30 PM</option>
-                <option value="4:00 PM">4:00 PM</option>
-                <option value="4:30 PM">4:30 PM</option>
-                <option value="5:00 PM">5:00 PM</option>
-                <option value="5:30 PM">5:30 PM</option>
-                <option value="6:00 PM">6:00 PM</option>
-              </select>
-            </div>
-          </div>
+          
 
           <div class="form-group row">
             <label for="nombreNuevo" class="col-lg col-form-label">Tratamiento: </label>

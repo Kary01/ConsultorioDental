@@ -4,7 +4,7 @@ $(document).ready(function($) {
        
 
       var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón
-        console.log(idPaciente);
+        //console.log(idPaciente);
 
         $.ajax({        //para traer todos los datos
             url: "ajax/pacientes.ajax.php",
@@ -13,7 +13,7 @@ $(document).ready(function($) {
             cache: false,
             data: { 'idmostrar': idPaciente },
             success: function(result) {
-                console.log(result);
+                //console.log(result);
                 $('#idEditar').val(null);
                 $('#idEditar').val(result['id']);
                 $('#pacienteEditar').val(result['nombre']);
@@ -26,7 +26,7 @@ $(document).ready(function($) {
                 $('#tratamientoEditar').val(result['tratamiento']);
             },
             error: function(jqXHR, textStatus, errorThrown) { //mostrar errores
-                console.log("Error: " + errorThrown);
+                //console.log("Error: " + errorThrown);
             }
         });
 
@@ -37,7 +37,7 @@ $(document).ready(function($) {
     $('#example tbody').on('click', '.btnEliminarPaciente', function() { //acción para el botón editar
 
       var idPaciente = $(this).attr("idPaciente");      //trae el id desde el botón
-      console.log(idPaciente);
+      //console.log(idPaciente);
 
       const swalWithBootstrapButtons = Swal.mixin({     //acciones en la alerta suave
           customClass: {
@@ -57,7 +57,7 @@ $(document).ready(function($) {
           reverseButtons: true
       }).then((result) => {
           if (result.value) {
-              console.log("me quieren eliminar" + idPaciente);      //mensaje prueba en consola
+              //console.log("me quieren eliminar" + idPaciente);      //mensaje prueba en consola
               $.ajax({
                   url: "ajax/pacientes.ajax.php",                   //acción en bd
                   method: "POST",
@@ -90,7 +90,7 @@ $(document).ready(function($) {
                               }
                           });
                       }
-                      console.log(resultado);
+                      //console.log(resultado);
                   },
                   error: function(jqXHR, textStatus, errorThrown) {
                       console.log("Error: " + errorThrown);
@@ -116,12 +116,13 @@ $(document).ready(function($) {
           cache: false,
           data: { 'idmostrar': idPaciente },
           success: function(result) {
-              console.log(result);
+              //console.log(result);
               $('#idCitas').val(null);
               $('#idCitas').val(result['id']);
               $('#nombreCitas').val(result['nombre']);
               $('#primerCitas').val(result['primer_apellido']);
               $('#segundoCitas').val(result['segundo_apellido']);
+              $('#nuevoTratamiento').val(result['tratamiento']);
           },
           error: function(jqXHR, textStatus, errorThrown) { //mostrar errores
               console.log("Error: " + errorThrown);

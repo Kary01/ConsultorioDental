@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="inicio" class="brand-link" style="padding-top: 45px; padding-bottom: 45px">
+  <a href="calendario" class="brand-link" style="padding-top: 45px; padding-bottom: 45px">
     <img src="vistas/dist/img/diente.png"
          alt="Logo"
          class="brand-image img-circle elevation-3"

@@ -86,8 +86,7 @@
                                 "nombre" => $_POST["nombreEditar"],
                                 "primer_apellido" => $_POST["primeroEditar"],
                                 "segundo_apellido" => $_POST["segundoEditar"],
-                                "fecha" => $_POST["fechaEditar"],
-                                "hora" => $_POST["horaEditar"],
+                                "fecha_hora" => $_POST["date_start"],
                                 "tratamiento" => $_POST["tratamientoEditar"]);
 
                 $respuesta = ModeloCitas::mdlEditarCitas($tabla, $datos);

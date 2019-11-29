@@ -26,3 +26,4 @@
     mail($destinatario, $asunto, $carta);
 
 ?>
+

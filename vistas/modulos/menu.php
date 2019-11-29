@@ -17,7 +17,19 @@
         <img src="vistas/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <span style="color:white"> ¡Hola, Dr. Blanca!</span>
+        <span style="color:white"> <?php 
+          
+          date_default_timezone_set('America/Mexico_City');
+          $t = date('H:i:s A');
+
+          if ($t < 12) {
+            echo "¡Buenos días <br> Dra, Blanca!";
+          }elseif ($t >= 12){
+            echo "¡Buenas tardes <br> Dra, Blanca!";
+          }elseif($t >= 20){
+            echo "¡Buenas noches <br> Dra, Blanca!";
+          }
+        ?> </span>
       </div>
     </div>
 

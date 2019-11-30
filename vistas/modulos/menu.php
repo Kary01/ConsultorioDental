@@ -18,15 +18,15 @@
       </div>
       <div class="info">
         <span style="color:white"> <?php 
-          
+
           date_default_timezone_set('America/Mexico_City');
           $t = date('H:i:s A');
 
-          if ($t < 12) {
+          if ( $t < 12) {
             echo "¡Buenos días <br> Dra, Blanca!";
-          }elseif ($t >= 12){
+          }elseif ($t >= 12 && $t < 19){
             echo "¡Buenas tardes <br> Dra, Blanca!";
-          }elseif($t >= 20){
+          }elseif($t >= 19){
             echo "¡Buenas noches <br> Dra, Blanca!";
           }
         ?> </span>
@@ -70,7 +70,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="Documentacion" class="nav-link" style="padding-top: 25px; padding-bottom: 25px">
+          <a href="documentacion" class="nav-link" style="padding-top: 25px; padding-bottom: 25px">
             <i class="nav-icon fas fa-file"></i>
             <p>Documentación</p>
           </a>

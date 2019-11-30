@@ -88,6 +88,7 @@ if (isset($_GET["ruta"])) {
       $_GET["ruta"] == "citas" ||
       $_GET["ruta"] == "pacientes" ||
       $_GET["ruta"] == "reportes" ||
+      $_GET["ruta"] == "documentacion" ||
       $_GET["ruta"] == "salir"){
 
     //Manda a llamar las categorias de las rutas

@@ -12,8 +12,6 @@
         $respuestapac = ControladorReportes::ctrMostrarPacientes();
         //graficas citas
         $respuestaci = ControladorReportes::ctrMostrarCitas();
-
-      
 ?>
 
 
@@ -251,7 +249,7 @@ new Chart(document.getElementById("line-chart"), {
       labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
       datasets: [
         {
-          label: "2019",
+          label: "2018",
           backgroundColor: "#3e95cd",
           data: [<?php $anio_0 = '';
               for ($i=0; $i < 12 ; $i++):
@@ -263,7 +261,7 @@ new Chart(document.getElementById("line-chart"), {
               endfor;
               echo $anio_0;?>]
         }, {
-          label: "2020",
+          label: "2019",
           backgroundColor: "#8e5ea2",
           data: [<?php $anio_0 = '';
               for ($i=0; $i < 12 ; $i++):
@@ -308,9 +306,9 @@ new Chart(document.getElementById("line-chart2"), {
           data: [<?php $anio_0 = '';
               for ($i=0; $i < 12 ; $i++):
                 if($i == 11):
-                  $anio_0 .= $respuestaci[0][$i];
+                  $anio_0 .= $respuestaci[1][$i];
                 else:
-                  $anio_0 .= $respuestaci[0][$i].',';
+                  $anio_0 .= $respuestaci[1][$i].',';
                 endif;
               endfor;
               echo $anio_0;?>]
